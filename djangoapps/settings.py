@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-4t1#8-8a34@a+k0xo4skd!qaei1b$m^-r+*688rg$buw+tvb&4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -122,3 +122,4 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.ngrok.io', '92315c544661.ngrok-free.app']  # Add your ngrok subdomain here
