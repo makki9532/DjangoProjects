@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+  <!-- Navigation Bar -->
+  <nav class="bg-white shadow mb-8">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="flex items-center h-16">
+        <!-- Logo on the left -->
+
+          <span class="text-xl font-bold text-blue-700">TicketTracker</span>
+        </div>
+        <!-- Centered Nav Options -->
+        <div class="flex-1 flex justify-center">
+          <div class="flex space-x-8">
+            <a href="{% url 'home' %}" class="text-gray-700 hover:text-blue-700 px-3 py-2 rounded transition">Dashboard</a>
+            <a href="#" class="text-gray-700 hover:text-blue-700 px-3 py-2 rounded transition">My Tickets</a>
+            <a href="#" class="text-gray-700 hover:text-blue-700 px-3 py-2 rounded transition">Create Ticket</a>
+            <a href="#" class="text-gray-700 hover:text-blue-700 px-3 py-2 rounded transition">Projects</a>
+            <a href="#" class="text-gray-700 hover:text-blue-700 px-3 py-2 rounded transition">Teams</a>
+            <a href="#" class="text-gray-700 hover:text-blue-700 px-3 py-2 rounded transition">Reports</a>
+          </div>
+        </div>
+        <!-- User & Logout on the right -->
+        <div class="flex items-center space-x-4">
+          <span class="text-gray-600">Welcome, {{ request.user.username }}</span>
+          <form method="post" action="{% url 'logout_user' %}">
+            {% csrf_token %}
+            <button type="submit"
+              class="bg-red-600 text-white font-semibold py-1 px-4 rounded hover:bg-red-700 transition duration-200">
+              Logout
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Home Page Content -->
+  <div class="flex items-center justify-center">
+    <div class="w-full max-w-2xl bg-white rounded-lg shadow-lg p-8 text-center">
+      <h1 class="text-3xl font-bold mb-4 text-gray-800">Welcome to TicketTracker</h1>
+      <p class="mb-6 text-gray-600">
+        Manage your organisation's tickets, projects, and teams efficiently.<br>
+        Track issues, assign tasks, and monitor progress all in one place.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-blue-50 rounded-lg p-4">
+          <h2 class="font-semibold text-blue-700 mb-2">Quick Actions</h2>
+          <ul class="text-left text-gray-700 space-y-1">
+            <li>• <a href="#" class="text-blue-600 hover:underline">Create a new ticket</a></li>
+            <li>• <a href="#" class="text-blue-600 hover:underline">View open tickets</a></li>
+            <li>• <a href="#" class="text-blue-600 hover:underline">Assign tickets</a></li>
+            <li>• <a href="#" class="text-blue-600 hover:underline">Generate report</a></li>
+          </ul>
+        </div>
+        <div class="bg-green-50 rounded-lg p-4">
+          <h2 class="font-semibold text-green-700 mb-2">Statistics</h2>
+          <ul class="text-left text-gray-700 space-y-1">
+            <li>Total Tickets: <span class="font-bold">123</span></li>
+            <li>Open Tickets: <span class="font-bold">17</span></li>
+            <li>Closed Tickets: <span class="font-bold">106</span></li>
+            <li>Active Projects: <span class="font-bold">5</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-8">
+        <h2 class="text-lg font-semibold text-gray-800 mb-2">Recent Activity</h2>
+        <ul class="text-left text-gray-600 space-y-1">
+          <li>• Ticket #122 assigned to Alice</li>
+          <li>• Project "Website Redesign" updated</li>
+          <li>• Ticket #120 closed by Bob</li>
+        </ul>
+      </div>
+    </div>
